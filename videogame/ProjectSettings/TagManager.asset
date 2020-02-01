@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 3216752167
+    locked: 0
+  - name: Bumpers
+    uniqueID: 773230345
     locked: 0
