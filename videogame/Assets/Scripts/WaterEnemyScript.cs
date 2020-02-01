@@ -7,27 +7,16 @@ public class WaterEnemyScript : MonoBehaviour
 
     public Vector2 moveDirection;
     public float speed;
-       
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
 
     void FixedUpdate() {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb.velocity.magnitude < 10) {
-            //Debug.Log("Faster!");
-            rb.AddRelativeForce(moveDirection * speed - rb.velocity);
-        }
-        else {
-            //Debug.Log("Too fast!");
-        }
+        rb.AddRelativeForce(moveDirection * speed - rb.velocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.gameObject.tag == "Ground") return;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        sr.flipX = !sr.flipX;
         moveDirection *= -1;
     }
 }
