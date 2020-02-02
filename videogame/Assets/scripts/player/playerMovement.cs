@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour
     public GameObject gc;
     bool isGrounded;
     public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        attack();
         isGrounded = gc.GetComponent<GroundCheck>().isGrounded;
     }
 
@@ -60,7 +62,6 @@ public class playerMovement : MonoBehaviour
                 Flip();
             }
         }
-        Debug.Log(isGrounded);
         if ((Input.GetButtonDown("Jump") && isGrounded) || (Input.GetButtonDown("Jump") && numJumps > 0))
         {
             Jump();
@@ -69,6 +70,11 @@ public class playerMovement : MonoBehaviour
         {
             numJumps = maxJumps;
         }
+
+    }
+
+    void attack()
+    {
 
     }
     void Jump()
