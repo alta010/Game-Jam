@@ -5,8 +5,8 @@ using UnityEngine;
 public class WaterEnemyScript : MonoBehaviour
 {
 
-    public Vector2 moveDirection;
-    public float speed;
+    public Vector2 moveDirection = Vector2.left;
+    public float speed = 7;
 
     void FixedUpdate() {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
