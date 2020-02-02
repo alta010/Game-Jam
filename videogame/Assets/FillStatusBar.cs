@@ -7,7 +7,7 @@ public class FillStatusBar : MonoBehaviour
 {
     public PlayerHealth playerhealth;
     public Image fillImage;
-    private Sldier slider;
+    private Slider slider;
 
     void Awake()
     {
@@ -30,6 +30,11 @@ public class FillStatusBar : MonoBehaviour
         if (fillValue <= slider.maxvalue)
         {
             fillImage.color = Color.white;
+        }
+
+        else if (fillValue > slider.maxValue / 3)
+        {
+            fillImage.color = Color.red;
         }
 
         slider.value = fillValue;
