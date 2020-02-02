@@ -23,19 +23,13 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void Damage(int dmg) {
         hp -= dmg;
+        if (hp < 0) hp = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        switch (collision.collider.gameObject.tag) {
-            case "Water":
-                Damage(2);
-                break;
-            case "Dust Bunny":
-                Damage(4);
-                break;
-            case "Virus":
-                Damage(8);
-                break;
+        EnemyHealthScript enemyHealth = collision.gameObject.GetComponent<EnemyHealthScript>();
+        if (enemyHealth != null) {
+            Damage(enemyHealth.maxHP);
         }
     }
 }
