@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VirusScript : MonoBehaviour
 {
-    public float maxHeight, maxTravel, speed;
+    public float maxHeight = 4, maxTravel = 4, speed = 5;
     Vector2[] flightNodes = new Vector2[3];
     int targetNodeIndex = 0;
     bool waitUntilInBounds = false;
@@ -19,10 +19,10 @@ public class VirusScript : MonoBehaviour
 
     private void NextNode() {
         waitUntilInBounds = true;
-        targetNodeIndex += pathStep;
         if (targetNodeIndex == 0 || targetNodeIndex == 2) {
             pathStep *= -1;
         }
+        targetNodeIndex += pathStep;
     }
 
     private bool OutOfBounds() {
