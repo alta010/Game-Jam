@@ -8,6 +8,7 @@ TagManager:
   - Virus
   - Dust Bunny
   - Water
+  - Ladder
   layers:
   - Default
   - TransparentFX
