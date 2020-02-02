@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DustBunnyScript : MonoBehaviour
 {
-    public float jumpHeight;
-    public int jumpChance;
+    public float jumpHeight = 300;
+    public int jumpChance = 5;
     bool grounded = false;
 
     void Jump() {
