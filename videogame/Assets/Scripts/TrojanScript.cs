@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageScript : MonoBehaviour
+public class TrojanScript : MonoBehaviour
 {
-    public int damage;
+    
 }
