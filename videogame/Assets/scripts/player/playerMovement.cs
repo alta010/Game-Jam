@@ -33,6 +33,10 @@ public class playerMovement : MonoBehaviour
             isGrounded = true;
             numJumps = maxJumps;
         }
+        if (tag == "Live Wire") {
+            PlayerHealthScript health = GetComponent<PlayerHealthScript>();
+            health.Damage(health.maxHP);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour
+public class PlayerHealthScript : MonoBehaviour
 {
     public int maxHP;
     public int hp;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         hp = maxHP;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+    
+    void Update() {
         if (hp <= 0) {
             GameOver();
         }
@@ -26,12 +21,11 @@ public class HealthScript : MonoBehaviour
         Debug.Log("U R DED");
     }
 
-    private void Damage(int dmg) {
+    public void Damage(int dmg) {
         hp -= dmg;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        // DamageScript dmg = collission.collider.gameObject.GetComponent<DamageScript>();
         switch (collision.collider.gameObject.tag) {
             case "Water":
                 Damage(2);
