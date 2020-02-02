@@ -12,7 +12,7 @@ public class playerMovement : MonoBehaviour
     bool facing_Right = true;
     bool isGrounded;
     public Animator anim;
-    
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -70,6 +70,11 @@ public class playerMovement : MonoBehaviour
         {
             numJumps = maxJumps;
         }
+
+    }
+
+    void attack()
+    {
 
     }
     void Jump()
