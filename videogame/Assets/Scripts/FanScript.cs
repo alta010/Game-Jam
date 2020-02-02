@@ -8,7 +8,6 @@ public class FanScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag != "Ground") {
-            Debug.Log("Pushing " + collision.gameObject.name);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * strength);
         }
     }

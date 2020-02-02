@@ -4,45 +4,29 @@ using UnityEngine;
 
 public class playerAttck : MonoBehaviour
 {
-    private bool attacking = false;
-    private float attackTimer = 0;
-    private float attackedCd = 0.3f;
-    public Collider2D attackTrigger;
+    public bool attacking = false;
+    private float attackTime = 0.3f;
     private Animator anim;
-    // Start is called before the first frame update
 
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-        attackTrigger.enabled = false;
     }
 
-    // Update is called once per frame
+    IEnumerator Attack() {
+        attacking = true;
+        yield return new WaitForSeconds(attackTime);
+        attacking = false;
+    }
+    
     void Update()
     {
-
         if(Input.GetKeyDown(KeyCode.F) && !attacking)
         {
+            Debug.Log("Pressed attack button");
             attacking = true;
-            attackTimer = attackedCd;
-
-            attackTrigger.enabled = true;
+            StartCoroutine(Attack());
         }
-        if(attacking)
-        {
-            if(attackTimer > 0)
-            {
-                attackTimer -= Time.deltaTime;
-            }
-            else
-            {
-                attacking = false;
-                attackTrigger.enabled = false;
-            }
-        }
-        Debug.Log(attacking);
         anim.SetBool("attack", attacking);
-        
     }
-
 }
