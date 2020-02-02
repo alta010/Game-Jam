@@ -12,26 +12,59 @@ public class playerMovement : MonoBehaviour
     bool facing_Right = true;
     bool isGrounded;
     public Animator anim;
-
+    public bool onLadder = false;
+    GameObject cam;
+    
     void Start()
     {
         anim = GetComponent<Animator>();
+        cam = GameObject.Find("Main Camera");
     }
 
     void Update()
     {
+        cam.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         Move();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.gameObject.tag == "Ground") {
+        string tag = collision.gameObject.tag;
+        if (tag == "Ground") {
             isGrounded = true;
             numJumps = maxJumps;
+        }
+        if (tag == "Live Wire") {
+            PlayerHealthScript health = GetComponent<PlayerHealthScript>();
+            health.Damage(health.maxHP);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        string tag = collision.gameObject.tag;
+        if (tag == "Ladder") {
+            onLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        string tag = collision.gameObject.tag;
+        if (tag == "Ladder") {
+            onLadder = false;
         }
     }
 
     private void Move()
     {
+        if (onLadder) {
+            float deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed * 2;
+            anim.SetFloat("speed", Mathf.Abs(deltaY));
+            float newYPos = transform.position.y + deltaY * 0.75f;
+            
+            if (!isGrounded || deltaY > 0) {
+                transform.position = new Vector2(transform.position.x, newYPos);
+            }
+        }   
+
         if (!isGrounded)
         {
             float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
