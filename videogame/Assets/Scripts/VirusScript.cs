@@ -10,6 +10,8 @@ public class VirusScript : MonoBehaviour
     bool waitUntilInBounds = false;
     int pathStep = -1;
 
+    public Sprite sprite1, sprite2;
+
     private void Start() {
         Vector2 pos = transform.position;
         flightNodes[0] = new Vector2(pos.x - maxTravel, pos.y + maxHeight);
@@ -21,6 +23,10 @@ public class VirusScript : MonoBehaviour
         waitUntilInBounds = true;
         if (targetNodeIndex == 0 || targetNodeIndex == 2) {
             pathStep *= -1;
+            GetComponent<SpriteRenderer>().sprite = sprite2;
+        }
+        else {
+            GetComponent<SpriteRenderer>().sprite = sprite1;
         }
         targetNodeIndex += pathStep;
     }

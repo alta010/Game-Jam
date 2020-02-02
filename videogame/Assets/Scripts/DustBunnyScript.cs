@@ -8,9 +8,12 @@ public class DustBunnyScript : MonoBehaviour
     public int jumpChance = 5;
     bool grounded = false;
 
+    public Sprite sprite1, sprite2;
+
     void Jump() {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight);
         grounded = false;
+        GetComponent<SpriteRenderer>().sprite = sprite2;
     }
 
     private void FixedUpdate() {
@@ -20,7 +23,9 @@ public class DustBunnyScript : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.gameObject.tag == "Ground")
+        if (collision.collider.gameObject.tag == "Ground") {
+            GetComponent<SpriteRenderer>().sprite = sprite1;
             grounded = true;
+        }
     }
 }
