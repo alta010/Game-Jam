@@ -10,27 +10,28 @@ public class playerMovement : MonoBehaviour
     int numJumps;
     public Rigidbody2D rb;
     bool facing_Right = true;
-    public GameObject gc;
     bool isGrounded;
     public Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
-        numJumps = maxJumps;
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
-        attack();
-        isGrounded = gc.GetComponent<GroundCheck>().isGrounded;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.gameObject.tag == "Ground") {
+            isGrounded = true;
+            numJumps = maxJumps;
+        }
     }
 
     private void Move()
     {
-        
         if (!isGrounded)
         {
             float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
@@ -45,7 +46,6 @@ public class playerMovement : MonoBehaviour
             {
                 Flip();
             }
-            
         }
         else
         {
@@ -82,7 +82,6 @@ public class playerMovement : MonoBehaviour
         isGrounded = false;
         rb.AddForce(new Vector2(0f, jumpForce));
         numJumps--;
-
     }
     private void Flip()
     {
