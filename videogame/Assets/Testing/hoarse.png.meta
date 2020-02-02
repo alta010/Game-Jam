@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:videogame/Assets/Testing/hoarse.png.meta
 guid: e7238c2eb5727ec4ca9c1bd69453a651
+=======
+guid: 1d0e1c83bfe7f47939dd382c56253ed3
+>>>>>>> Anthony:videogame/Assets/Texture/spike tile-Sheet.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +40,11 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
+<<<<<<< HEAD:videogame/Assets/Testing/hoarse.png.meta
     wrapW: 1
+=======
+    wrapW: -1
+>>>>>>> Anthony:videogame/Assets/Texture/spike tile-Sheet.png.meta
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -45,7 +53,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
