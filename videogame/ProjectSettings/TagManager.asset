@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Virus
+  - Dust Bunny
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -13,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Bumpers
+  - Enemies
+  - Ground
   - 
   - 
   - 
@@ -40,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 634695453
+    locked: 0
+  - name: Enemies
+    uniqueID: 3216752167
+    locked: 0
+  - name: Bumpers
+    uniqueID: 773230345
+    locked: 0
+  - name: Player
+    uniqueID: 549860329
     locked: 0
