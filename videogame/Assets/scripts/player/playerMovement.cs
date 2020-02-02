@@ -14,7 +14,6 @@ public class playerMovement : MonoBehaviour
     public Animator anim;
     public bool onLadder = false;
     GameObject cam;
-    
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -99,6 +98,11 @@ public class playerMovement : MonoBehaviour
         {
             numJumps = maxJumps;
         }
+
+    }
+
+    void attack()
+    {
 
     }
     void Jump()
