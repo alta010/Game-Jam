@@ -7,6 +7,7 @@ public class playerAttck : MonoBehaviour
     public bool attacking = false;
     private float attackTime = 0.3f;
     private Animator anim;
+    public GameObject projectile;
 
     void Awake()
     {
@@ -15,6 +16,10 @@ public class playerAttck : MonoBehaviour
 
     IEnumerator Attack() {
         attacking = true;
+        GameObject activeProjectile = Instantiate(projectile);
+        playerMovement pm = GetComponent<playerMovement>();
+        activeProjectile.transform.position = transform.position + (pm.facing_Right ? Vector3.right : Vector3.left) * 2;
+        activeProjectile.GetComponent<Rigidbody2D>().AddForce((pm.facing_Right ? Vector2.right : Vector2.left) * 100);
         yield return new WaitForSeconds(attackTime);
         attacking = false;
     }

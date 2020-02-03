@@ -24,4 +24,10 @@ public class EnemyHealthScript : MonoBehaviour
     public void Damage(int dmg) {
         hp -= dmg;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Projectile") {
+            Damage(1);
+        }
+    }
 }

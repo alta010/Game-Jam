@@ -9,7 +9,7 @@ public class playerMovement : MonoBehaviour
     public int maxJumps = 2;
     int numJumps;
     public Rigidbody2D rb;
-    bool facing_Right = true;
+    public bool facing_Right = true;
     bool isGrounded;
     public Animator anim;
     public bool onLadder = false;
